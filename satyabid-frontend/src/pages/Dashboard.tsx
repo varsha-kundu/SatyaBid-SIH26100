@@ -307,7 +307,7 @@ export function Dashboard() {
               ? (vendors.data as any).vendors
               : [];
             return list.length === 0 ? (
-              <EmptyState title="Backend offline" body="Start the Flask backend at http://127.0.0.1:8000 to load demo data." />
+              <EmptyState title="Backend offline" body="The backend service is currently unreachable. Please check that the backend is running and the API URL is configured correctly." />
             ) : (
               <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {list.map((v, i) => (

@@ -22,7 +22,7 @@ class DocumentExtractor:
         r"UDYAM-[A-Z]{2}-\d{2}-\d{7}",
 
         "cin":
-        r"\b[L|U]\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6}\b",
+        r"\b[LU]\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6}\b",
     }
 
     def extract_text(self, pdf_path):
