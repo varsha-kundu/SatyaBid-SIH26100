@@ -1,0 +1,463 @@
+[
+  {
+    "source_file": "bid_form_bid_apx_2026_089.pdf",
+    "gstin": "07AAACA1234K1Z2",
+    "vendor_found_in_registry": true,
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check": "vendor_lookup",
+        "status": "PASS",
+        "declared": "07AAACA1234K1Z2",
+        "expected": "07AAACA1234K1Z2",
+        "message": "GSTIN found in government portal registry."
+      },
+      {
+        "check": "pan_matches_registry",
+        "status": "PASS",
+        "declared": "AAACA1234K",
+        "expected": "AAACA1234K",
+        "message": "PAN on bid matches PAN registered against this GSTIN."
+      },
+      {
+        "check": "cin_matches_registry",
+        "status": "PASS",
+        "declared": "U28112DL2019PTC345123",
+        "expected": "U28112DL2019PTC345123",
+        "message": "CIN on bid matches CIN registered against this GSTIN."
+      },
+      {
+        "check": "name_matches_gstn",
+        "status": "PASS",
+        "declared": "Apex Industrial Pipes Private Limited",
+        "expected": "Apex Industrial Pipes Private Limited",
+        "message": "Bid's declared legal name matches GST legal_name."
+      },
+      {
+        "check": "name_matches_pan_it",
+        "status": "PASS",
+        "declared": "Apex Industrial Pipes Private Limited",
+        "expected": "APEX INDUSTRIAL PIPES PRIVATE LIMITED",
+        "message": "Bid's declared legal name matches PAN name_on_pan."
+      },
+      {
+        "check": "name_matches_mca21",
+        "status": "PASS",
+        "declared": "Apex Industrial Pipes Private Limited",
+        "expected": "Apex Industrial Pipes Private Limited",
+        "message": "Bid's declared legal name matches MCA company_name."
+      },
+      {
+        "check": "gst_registration_active",
+        "status": "PASS",
+        "declared": "Active",
+        "expected": "Active",
+        "message": "GST registration is Active."
+      },
+      {
+        "check": "not_debarred",
+        "status": "PASS",
+        "declared": "No adverse record located",
+        "expected": "No adverse record located",
+        "message": "No blacklisting/debarment record found."
+      },
+      {
+        "check": "udyam_claim_verifiable",
+        "status": "PASS",
+        "declared": "UDYAM-DL-01-0045678",
+        "expected": "UDYAM-DL-01-0045678",
+        "message": "Udyam registration number matches portal record."
+      },
+      {
+        "check": "startup_india_claim_verifiable",
+        "status": "PASS",
+        "declared": "yes",
+        "expected": "Active",
+        "message": "Startup India / DPIIT recognition confirmed as Active in portal data."
+      },
+      {
+        "check": "msme_exemption_consistent",
+        "status": "PASS",
+        "declared": "yes",
+        "expected": null,
+        "message": "MSME exemption claim is internally consistent with Udyam registration status."
+      }
+    ]
+  },
+  {
+    "source_file": "bid_form_bid_bhv_2026_089.pdf",
+    "gstin": "27AABCB5678L1Z9",
+    "vendor_found_in_registry": true,
+    "overall_status": "FAIL",
+    "checks": [
+      {
+        "check": "vendor_lookup",
+        "status": "PASS",
+        "declared": "27AABCB5678L1Z9",
+        "expected": "27AABCB5678L1Z9",
+        "message": "GSTIN found in government portal registry."
+      },
+      {
+        "check": "pan_matches_registry",
+        "status": "PASS",
+        "declared": "AABCB5678L",
+        "expected": "AABCB5678L",
+        "message": "PAN on bid matches PAN registered against this GSTIN."
+      },
+      {
+        "check": "cin_matches_registry",
+        "status": "PASS",
+        "declared": "U29100MH2017PLC234890",
+        "expected": "U29100MH2017PLC234890",
+        "message": "CIN on bid matches CIN registered against this GSTIN."
+      },
+      {
+        "check": "name_matches_gstn",
+        "status": "PASS",
+        "declared": "Bharat Heavy Valves Ltd",
+        "expected": "Bharat Heavy Valves Ltd",
+        "message": "Bid's declared legal name matches GST legal_name."
+      },
+      {
+        "check": "name_matches_pan_it",
+        "status": "PASS",
+        "declared": "Bharat Heavy Valves Ltd",
+        "expected": "BHARAT HEAVY VALVES LTD",
+        "message": "Bid's declared legal name matches PAN name_on_pan."
+      },
+      {
+        "check": "name_matches_mca21",
+        "status": "PASS",
+        "declared": "Bharat Heavy Valves Ltd",
+        "expected": "Bharat Heavy Valves Ltd",
+        "message": "Bid's declared legal name matches MCA company_name."
+      },
+      {
+        "check": "gst_registration_active",
+        "status": "FAIL",
+        "declared": "Suspended",
+        "expected": "Active",
+        "message": "GST registration status is 'Suspended', not Active - bidder may be ineligible."
+      },
+      {
+        "check": "not_debarred",
+        "status": "PASS",
+        "declared": "No adverse record located",
+        "expected": "No adverse record located",
+        "message": "No blacklisting/debarment record found."
+      },
+      {
+        "check": "udyam_claim_verifiable",
+        "status": "PASS",
+        "declared": "UDYAM-MH-02-0089123",
+        "expected": "UDYAM-MH-02-0089123",
+        "message": "Udyam registration number matches portal record."
+      },
+      {
+        "check": "msme_exemption_consistent",
+        "status": "PASS",
+        "declared": "yes",
+        "expected": null,
+        "message": "MSME exemption claim is internally consistent with Udyam registration status."
+      }
+    ]
+  },
+  {
+    "source_file": "bid_form_bid_epc_2026_089.pdf",
+    "gstin": "19AAAEE7777P1Z5",
+    "vendor_found_in_registry": true,
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check": "vendor_lookup",
+        "status": "PASS",
+        "declared": "19AAAEE7777P1Z5",
+        "expected": "19AAAEE7777P1Z5",
+        "message": "GSTIN found in government portal registry."
+      },
+      {
+        "check": "pan_matches_registry",
+        "status": "PASS",
+        "declared": "AAAEE7777P",
+        "expected": "AAAEE7777P",
+        "message": "PAN on bid matches PAN registered against this GSTIN."
+      },
+      {
+        "check": "cin_matches_registry",
+        "status": "PASS",
+        "declared": "U28990WB2020PTC241567",
+        "expected": "U28990WB2020PTC241567",
+        "message": "CIN on bid matches CIN registered against this GSTIN."
+      },
+      {
+        "check": "name_matches_gstn",
+        "status": "PASS",
+        "declared": "Eastern Precision Components Private Limited",
+        "expected": "Eastern Precision Components Private Limited",
+        "message": "Bid's declared legal name matches GST legal_name."
+      },
+      {
+        "check": "name_matches_pan_it",
+        "status": "PASS",
+        "declared": "Eastern Precision Components Private Limited",
+        "expected": "EASTERN PRECISION COMPONENTS PRIVATE LIMITED",
+        "message": "Bid's declared legal name matches PAN name_on_pan."
+      },
+      {
+        "check": "name_matches_mca21",
+        "status": "PASS",
+        "declared": "Eastern Precision Components Private Limited",
+        "expected": "Eastern Precision Components Private Limited",
+        "message": "Bid's declared legal name matches MCA company_name."
+      },
+      {
+        "check": "gst_registration_active",
+        "status": "PASS",
+        "declared": "Active",
+        "expected": "Active",
+        "message": "GST registration is Active."
+      },
+      {
+        "check": "not_debarred",
+        "status": "PASS",
+        "declared": "No adverse record located",
+        "expected": "No adverse record located",
+        "message": "No blacklisting/debarment record found."
+      },
+      {
+        "check": "msme_exemption_consistent",
+        "status": "PASS",
+        "declared": "no",
+        "expected": null,
+        "message": "MSME exemption claim is internally consistent with Udyam registration status."
+      }
+    ]
+  },
+  {
+    "source_file": "bid_form_bid_sec_2026_089.pdf",
+    "gstin": "06AACCC9999M1Z4",
+    "vendor_found_in_registry": true,
+    "overall_status": "CRITICAL",
+    "checks": [
+      {
+        "check": "vendor_lookup",
+        "status": "PASS",
+        "declared": "06AACCC9999M1Z4",
+        "expected": "06AACCC9999M1Z4",
+        "message": "GSTIN found in government portal registry."
+      },
+      {
+        "check": "pan_matches_registry",
+        "status": "PASS",
+        "declared": "AACCC9999M",
+        "expected": "AACCC9999M",
+        "message": "PAN on bid matches PAN registered against this GSTIN."
+      },
+      {
+        "check": "cin_matches_registry",
+        "status": "PASS",
+        "declared": "U74999HR2021PTC398765",
+        "expected": "U74999HR2021PTC398765",
+        "message": "CIN on bid matches CIN registered against this GSTIN."
+      },
+      {
+        "check": "name_matches_gstn",
+        "status": "PASS",
+        "declared": "Shadow Engineering Consortium",
+        "expected": "Shadow Engineering Consortium",
+        "message": "Bid's declared legal name matches GST legal_name."
+      },
+      {
+        "check": "name_matches_pan_it",
+        "status": "PASS",
+        "declared": "Shadow Engineering Consortium",
+        "expected": "SHADOW ENGINEERING CONSORTIUM",
+        "message": "Bid's declared legal name matches PAN name_on_pan."
+      },
+      {
+        "check": "name_matches_mca21",
+        "status": "PASS",
+        "declared": "Shadow Engineering Consortium",
+        "expected": "Shadow Engineering Consortium",
+        "message": "Bid's declared legal name matches MCA company_name."
+      },
+      {
+        "check": "gst_registration_active",
+        "status": "FAIL",
+        "declared": "Cancelled",
+        "expected": "Active",
+        "message": "GST registration status is 'Cancelled', not Active - bidder may be ineligible."
+      },
+      {
+        "check": "not_debarred",
+        "status": "CRITICAL",
+        "declared": "Adverse record located",
+        "expected": "No adverse record located",
+        "message": "Debarment registry shows: 'Adverse record located' - this bidder may be disqualified outright."
+      },
+      {
+        "check": "msme_exemption_consistent",
+        "status": "PASS",
+        "declared": "no",
+        "expected": null,
+        "message": "MSME exemption claim is internally consistent with Udyam registration status."
+      }
+    ]
+  },
+  {
+    "source_file": "bid_form_bid_waf_2026_089.pdf",
+    "gstin": "24AAAFG8888Q1Z6",
+    "vendor_found_in_registry": true,
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check": "vendor_lookup",
+        "status": "PASS",
+        "declared": "24AAAFG8888Q1Z6",
+        "expected": "24AAAFG8888Q1Z6",
+        "message": "GSTIN found in government portal registry."
+      },
+      {
+        "check": "pan_matches_registry",
+        "status": "PASS",
+        "declared": "AAAFG8888Q",
+        "expected": "AAAFG8888Q",
+        "message": "PAN on bid matches PAN registered against this GSTIN."
+      },
+      {
+        "check": "cin_matches_registry",
+        "status": "PASS",
+        "declared": "U27100GJ2018PLC102345",
+        "expected": "U27100GJ2018PLC102345",
+        "message": "CIN on bid matches CIN registered against this GSTIN."
+      },
+      {
+        "check": "name_matches_gstn",
+        "status": "PASS",
+        "declared": "Western Alloy Fabricators Limited",
+        "expected": "Western Alloy Fabricators Limited",
+        "message": "Bid's declared legal name matches GST legal_name."
+      },
+      {
+        "check": "name_matches_pan_it",
+        "status": "PASS",
+        "declared": "Western Alloy Fabricators Limited",
+        "expected": "WESTERN ALLOY FABRICATORS LIMITED",
+        "message": "Bid's declared legal name matches PAN name_on_pan."
+      },
+      {
+        "check": "name_matches_mca21",
+        "status": "PASS",
+        "declared": "Western Alloy Fabricators Limited",
+        "expected": "Western Alloy Fabricators Limited",
+        "message": "Bid's declared legal name matches MCA company_name."
+      },
+      {
+        "check": "gst_registration_active",
+        "status": "PASS",
+        "declared": "Active",
+        "expected": "Active",
+        "message": "GST registration is Active."
+      },
+      {
+        "check": "not_debarred",
+        "status": "PASS",
+        "declared": "No adverse record located",
+        "expected": "No adverse record located",
+        "message": "No blacklisting/debarment record found."
+      },
+      {
+        "check": "msme_exemption_consistent",
+        "status": "PASS",
+        "declared": "no",
+        "expected": null,
+        "message": "MSME exemption claim is internally consistent with Udyam registration status."
+      }
+    ]
+  },
+  {
+    "source_file": "bid_form_bid_zna_2026_089.pdf",
+    "gstin": "33AAACD4444N1Z1",
+    "vendor_found_in_registry": true,
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check": "vendor_lookup",
+        "status": "PASS",
+        "declared": "33AAACD4444N1Z1",
+        "expected": "33AAACD4444N1Z1",
+        "message": "GSTIN found in government portal registry."
+      },
+      {
+        "check": "pan_matches_registry",
+        "status": "PASS",
+        "declared": "AAACD4444N",
+        "expected": "AAACD4444N",
+        "message": "PAN on bid matches PAN registered against this GSTIN."
+      },
+      {
+        "check": "cin_matches_registry",
+        "status": "PASS",
+        "declared": "U24290TN2022PTC112233",
+        "expected": "U24290TN2022PTC112233",
+        "message": "CIN on bid matches CIN registered against this GSTIN."
+      },
+      {
+        "check": "name_matches_gstn",
+        "status": "PASS",
+        "declared": "Zenith Nano Alloys Private Limited",
+        "expected": "Zenith Nano Alloys Private Limited",
+        "message": "Bid's declared legal name matches GST legal_name."
+      },
+      {
+        "check": "name_matches_pan_it",
+        "status": "PASS",
+        "declared": "Zenith Nano Alloys Private Limited",
+        "expected": "ZENITH NANO ALLOYS PRIVATE LIMITED",
+        "message": "Bid's declared legal name matches PAN name_on_pan."
+      },
+      {
+        "check": "name_matches_mca21",
+        "status": "PASS",
+        "declared": "Zenith Nano Alloys Private Limited",
+        "expected": "Zenith Nano Alloys Private Limited",
+        "message": "Bid's declared legal name matches MCA company_name."
+      },
+      {
+        "check": "gst_registration_active",
+        "status": "PASS",
+        "declared": "Active",
+        "expected": "Active",
+        "message": "GST registration is Active."
+      },
+      {
+        "check": "not_debarred",
+        "status": "PASS",
+        "declared": "No adverse record located",
+        "expected": "No adverse record located",
+        "message": "No blacklisting/debarment record found."
+      },
+      {
+        "check": "udyam_claim_verifiable",
+        "status": "PASS",
+        "declared": "UDYAM-TN-04-0011223",
+        "expected": "UDYAM-TN-04-0011223",
+        "message": "Udyam registration number matches portal record."
+      },
+      {
+        "check": "startup_india_claim_verifiable",
+        "status": "PASS",
+        "declared": "yes",
+        "expected": "Active",
+        "message": "Startup India / DPIIT recognition confirmed as Active in portal data."
+      },
+      {
+        "check": "msme_exemption_consistent",
+        "status": "PASS",
+        "declared": "yes",
+        "expected": null,
+        "message": "MSME exemption claim is internally consistent with Udyam registration status."
+      }
+    ]
+  }
+]

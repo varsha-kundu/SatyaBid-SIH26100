@@ -1,0 +1,94 @@
+import json
+import pytest
+import mock_portals as mp
+import api as appmod
+
+
+def _write_small_db(tmp_path):
+    """Create a small one-vendor dataset for API tests."""
+    vendor = {
+        "official_name": "Test Vendor Pvt Ltd",
+        "gstn": {
+            "gstin": "07AAACA1234K1Z2",
+            "legal_name": "Test Vendor Pvt Ltd",
+            "registration_status": "Active",
+            "principal_place_of_business": "New Delhi, Delhi",
+        },
+        "pan_it": {"pan": "AAACA1234K", "name_on_pan": "TEST VENDOR PVT LTD"},
+        "mca21": {"cin": "U28112DL2019PTC345123", "company_name": "Test Vendor Pvt Ltd"},
+        "debarment_registry": {"registry_status": "No adverse record located"},
+    }
+    db = {
+        "tender_requirements": {"tender_id": "T-TEST-1", "min_local_content_pct": 50},
+        "government_portals": {
+            "07AAACA1234K1Z2": vendor
+        }
+    }
+    db_path = tmp_path / "dummy_records.json"
+    db_path.write_text(json.dumps(db), encoding="utf-8")
+    return db_path
+
+
+@pytest.fixture(autouse=True)
+def reset_module_state(tmp_path, monkeypatch):
+    # Clear mock_portals caches
+    mp._database_cache = None
+    mp._database = None
+    mp._pan_index = None
+    mp._cin_index = None
+
+    # Place a small DB and point mock_portals to it
+    db_path = _write_small_db(tmp_path)
+    monkeypatch.setattr(mp, "DB_PATH", db_path)
+
+    # Ensure API module uses a deterministic API_KEY for tests
+    appmod.API_KEY = "TESTKEY"
+    yield
+
+    # cleanup
+    mp._database_cache = None
+    mp._database = None
+    mp._pan_index = None
+    mp._cin_index = None
+
+
+def test_health_ok():
+    client = appmod.app.test_client()
+    resp = client.get("/health")
+    assert resp.status_code == 200
+    j = resp.get_json()
+    assert j["status"] == "ok"
+
+
+def test_unauthorized_blocks_requests():
+    client = appmod.app.test_client()
+    resp = client.get("/gst/07AAACA1234K1Z2")
+    assert resp.status_code == 401
+
+
+def test_gst_lookup_with_valid_key():
+    client = appmod.app.test_client()
+    headers = {"X-API-KEY": "TESTKEY"}
+    resp = client.get("/gst/07AAACA1234K1Z2", headers=headers)
+    assert resp.status_code == 200
+    j = resp.get_json()
+    assert j["registration_status"] == "Active"
+
+
+def test_gst_lookup_not_found_returns_404():
+    client = appmod.app.test_client()
+    headers = {"X-API-KEY": "TESTKEY"}
+    resp = client.get("/gst/27AABCB5678L1Z9", headers=headers)
+    assert resp.status_code == 404
+
+
+def test_openapi_and_docs_available():
+    client = appmod.app.test_client()
+    resp = client.get("/openapi.json")
+    assert resp.status_code == 200
+    j = resp.get_json()
+    assert "openapi" in j
+
+    docs = client.get("/docs")
+    assert docs.status_code == 200
+    assert b"swagger-ui" in docs.data or b"SwaggerUIBundle" in docs.data

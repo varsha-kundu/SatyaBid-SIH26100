@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   SatyaBid — Global CSS
+   Light/dark mode via `class` strategy on <html>
+   ===================================================================== */
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-surface-page text-ink antialiased;
+}
+
+/* Dark mode body override */
+html.dark body {
+  background-color: #0a1628;
+  color: #e2e8f0;
+}
+
+::selection {
+  background: #FEE3C8;
+}
+
+html.dark ::selection {
+  background: #7c3a1a;
+}
+
+/* Visible keyboard focus, kept consistent across the app */
+:focus-visible {
+  outline: 2px solid #F97316;
+  outline-offset: 2px;
+}
+
+/* Indian tricolour decorative rule */
+.tricolor-rule {
+  height: 3px;
+  background: linear-gradient(90deg, #F97316 0 33.3%, #FFFFFF 33.3% 66.6%, #15803D 66.6% 100%);
+}
+
+html.dark .tricolor-rule {
+  background: linear-gradient(90deg, #F97316 0 33.3%, #374151 33.3% 66.6%, #15803D 66.6% 100%);
+}
+
+/* Status chip — used in StatusBadge and RiskBadge */
+.status-chip {
+  @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+}
+
+/* ---- Standardized enterprise data table ---- */
+.data-table {
+  @apply w-full border-collapse text-left text-sm;
+}
+.data-table thead th {
+  @apply sticky top-0 z-10 border-b border-line bg-surface-secondary px-4 py-3 text-[11px] font-semibold uppercase tracking-wide text-ink-secondary;
+}
+html.dark .data-table thead th {
+  background-color: #1a2744;
+  border-color: #2d3f5e;
+  color: #94a3b8;
+}
+.data-table tbody td {
+  @apply border-b border-line px-4 py-3 align-middle text-ink;
+}
+html.dark .data-table tbody td {
+  border-color: #1e2d47;
+  color: #cbd5e1;
+}
+.data-table tbody tr:nth-child(even) {
+  @apply bg-surface-secondary/50;
+}
+html.dark .data-table tbody tr:nth-child(even) {
+  background-color: rgba(26, 39, 68, 0.5);
+}
+.data-table tbody tr:hover {
+  @apply bg-saffron-50/60;
+}
+html.dark .data-table tbody tr:hover {
+  background-color: rgba(249, 115, 22, 0.08);
+}
+
+/* Eyebrow label */
+.eyebrow {
+  @apply text-[11px] font-semibold uppercase tracking-wider text-saffron-600;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(11, 33, 54, 0.2);
+  border-radius: 999px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(11, 33, 54, 0.35);
+}
+
+/* Dark mode card and surface overrides used by UI primitives */
+html.dark .dm-card {
+  background-color: #111d35;
+  border-color: #1e2d47;
+}
+html.dark .dm-surface-page {
+  background-color: #0a1628;
+}
+html.dark .dm-surface-secondary {
+  background-color: #142038;
+}
+
+/* Smooth theme transition */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+/* But don't transition transforms/opacity/layout (causes jank) */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+}
+
+/* Kill transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Chart tooltip dark mode */
+html.dark .recharts-default-tooltip {
+  background-color: #111d35 !important;
+  border-color: #1e2d47 !important;
+  color: #e2e8f0 !important;
+}
+html.dark .recharts-tooltip-label {
+  color: #94a3b8 !important;
+}

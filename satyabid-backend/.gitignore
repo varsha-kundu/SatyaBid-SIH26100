@@ -1,0 +1,29 @@
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Python virtual envs
+# (was ".envvenv/" - a typo that didn't match anything, so the real .venv/
+# folder used throughout this project was never actually ignored)
+.venv/
+venv/
+env/
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml

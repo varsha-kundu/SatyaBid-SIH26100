@@ -1,0 +1,11 @@
+[build]
+  base      = "."
+  command   = "npm run build"
+  publish   = "dist"
+
+# SPA routing: serve index.html for all routes so react-router-dom works
+# on direct URL access and refresh.
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: satyabid-backend
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python api.py"
+    envVars:
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: PORT
+        value: "8000"
+      - key: API_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "https://satyabid.netlify.app"

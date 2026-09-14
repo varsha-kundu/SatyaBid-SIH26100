@@ -1,0 +1,26 @@
+# Without this file, `Dockerfile`'s `COPY . /app` would copy everything in
+# this folder into the build context - including your real .env (with its
+# real API_KEY baked permanently into an image layer, recoverable by anyone
+# who later pulls that image) and your whole .venv/ (hundreds of MB that
+# don't belong in the container, which installs its own dependencies via
+# requirements.txt anyway).
+
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+.git/
+.gitignore
+
+.env
+.env.local
+.env.*.local
+
+.vscode/
+.idea/
+.DS_Store
+
+*.log
