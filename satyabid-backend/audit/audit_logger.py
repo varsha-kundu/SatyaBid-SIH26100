@@ -13,6 +13,8 @@ tamper-evident store (e.g. a database with row-level hash chaining).
 For the prototype, appending to a flat JSONL file is sufficient.
 """
 
+from __future__ import annotations
+
 import json
 import logging
 from datetime import datetime, timezone

@@ -29,12 +29,12 @@ class DocumentExtractor:
 
         try:
 
-            pdf = fitz.open(pdf_path)
+            with fitz.open(pdf_path) as pdf:
 
-            text = ""
+                text = ""
 
-            for page in pdf:
-                text += page.get_text()
+                for page in pdf:
+                    text += page.get_text()
 
             return text
 

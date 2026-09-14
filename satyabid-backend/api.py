@@ -61,35 +61,30 @@ def _get_allowed_origins() -> list[str]:
 
     Supports a comma-separated list so multiple origins (e.g. Netlify deploy
     URL + localhost dev server) can be allowed without changing code.
-    Falls back to localhost:5173 for local development.
+    Returns an empty list when CORS_ORIGINS is unset or blank — callers must
+    guard against an empty list before indexing.
     """
-    raw = os.getenv("CORS_ORIGINS", "http://localhost:5173")
+    raw = os.getenv("CORS_ORIGINS", "")
     return [o.strip() for o in raw.split(",") if o.strip()]
 
 
 @app.after_request
 def add_cors_headers(response):
-    # Reflect the methods this specific route actually supports (Flask
-    # already computed this correctly for the OPTIONS "Allow" header) rather
-    # than hardcoding "GET, OPTIONS" - that hardcoding was fine while every
-    # route was GET-only, but /admin/reload-db (POST) needs POST advertised
-    # too, or a browser's CORS preflight will block it even though the
-    # server would accept the real request.
     allowed_methods = response.headers.get("Allow")
     if not allowed_methods and request.url_rule:
         allowed_methods = ", ".join(sorted(request.url_rule.methods - {"HEAD"}))
 
-    # Echo back the request origin if it is in the allowed list; this is the
-    # correct way to handle multiple allowed origins rather than returning a
-    # comma-separated list (which browsers do not accept).
     request_origin = request.headers.get("Origin", "")
     allowed_origins = _get_allowed_origins()
-    if request_origin in allowed_origins:
-        response.headers["Access-Control-Allow-Origin"] = request_origin
-    else:
-        # Default to the first allowed origin (keeps behaviour unchanged for
-        # same-origin or non-browser requests).
-        response.headers["Access-Control-Allow-Origin"] = allowed_origins[0]
+
+    if allowed_origins:
+        # Echo back the matching origin (correct multi-origin CORS pattern).
+        if request_origin in allowed_origins:
+            response.headers["Access-Control-Allow-Origin"] = request_origin
+        # Non-browser / same-origin requests have no Origin header — skip the
+        # header entirely rather than leaking the first configured origin.
+    # If CORS_ORIGINS is empty/unset, omit the header completely so that
+    # health-checks and server-to-server calls never crash the response.
 
     response.headers["Access-Control-Allow-Methods"] = allowed_methods or "GET, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "Content-Type, X-API-KEY"
